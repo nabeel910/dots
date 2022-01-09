@@ -1,0 +1,43 @@
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+
+
+# Global properties
+separator=true
+separator_block_width=10
+
+[music-indicator]
+command=sb-music
+interval=2
+
+[transferspeed]
+command=sb-down
+interval=2
+
+[cpu]
+command=sb-cputemp
+interval=5
+
+[volume]
+command=sb-sound
+interval=1
+
+[brightness]
+command=sb-brightness
+interval=1
+
+[wifi]
+command=sb-wifi
+interval=5
+
+[date]
+command=date +%a,%d-%m
+interval=10
+
+[time]
+command=date +%I:%M
+interval=10

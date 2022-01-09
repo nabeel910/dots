@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='supervise.agetty-tty2'
+let g:netrw_dirhist_7='/etc/runit/sv/agetty-tty2'
+let g:netrw_dirhist_6='supervise.agetty-tty2'
+let g:netrw_dirhist_5='/home/nabeel/apps/suckless/slstatus'
+let g:netrw_dirhist_4='/home/nabeel/.config/transmission-daemon'
+let g:netrw_dirhist_3='/home/nabeel/forest/polybar'
+let g:netrw_dirhist_2='/home/nabeel/.config/leftwm/themes/current/.config'
+let g:netrw_dirhist_1='/home/nabeel/.config/leftwm/themes/current'
+let g:netrw_dirhist_0='/home/nabeel/apps/nabeel910.github.io/style'
+let g:netrw_dirhist_9='/usr/share/X11/xorg.conf.d'

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=cli-tremc
+Icon=transmission
+Exec=/home/nabeel/.local/bin/transadd
+Terminal=true

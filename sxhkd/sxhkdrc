@@ -1,0 +1,178 @@
+####################################       LAUNCH APPLICATIONS               ############################
+
+# Start a terminal
+super+Return 
+	alacritty
+
+super+shift+Return
+	st
+
+# Start brave,chromium browser
+super+{w,c}
+	{brave,chromium}
+
+alt+control+{c,w} 
+	{chromium --incognito,brave --incognito}
+
+# Start media players
+#super+m
+#	cmus
+
+# open file manager
+super+n
+	alacritty -e lf
+
+super+shift+n
+	thunar
+
+super+shift+p
+	alacritty -t pacman-updates -e paru -Syu
+
+super+r
+	alacritty -e newsboat
+
+super+shift+k
+	pirokit
+
+super+shift+v
+	alacritty -t sxiv set-bg -e viewwalls
+
+super+/
+	dunst-music-notification
+
+super+shift+/
+	pendingpacks
+
+super+t
+	alacritty -t tremc -e tremc
+
+
+####################################        DMENU MENUS                ############################
+
+#start menu
+super+d
+	dmenu_run -i
+
+#emoji picker
+super+e
+	dmenuemoji
+
+# Start Clipmenu
+super+x
+	clipmenu -i
+
+# Lock screen, reboot, suspend, poweroff
+alt+ctrl+{l,e}
+	{slock,dsession}
+
+
+#networkmanager_dmenu
+#
+super+shift+w
+	networkmanager_dmenu
+
+# open calc
+super+g
+	= --dmenu='dmenu -i -l 3'
+
+####################################        SYSTEM CONTROLS           ############################
+
+# Audio controls
+XF86Audio{Raise,Lower}Volume
+	{pamixer --allow-boost -i 10 && ~/.local/bin/sound-notification && polybar-msg hook sb-sound 1,pamixer --allow-boost -d 10 && ~/.local/bin/sound-notification && polybar-msg hook sb-sound 1}
+
+# Mute Audio
+XF86AudioMute
+	pamixer -t && ~/.local/bin/sound-notification && polybar-msg hook sb-sound 1
+
+# Media player controls
+XF86Audio{Play,Next,Prev}
+	{playerctl --player=playerctld play-pause,playerctl --player=playerctld next,playerctl --player=playerctld previous} && dunst-music-notification
+
+# Brightness controls
+XF86MonBrightness{Up,Down}
+	{xbacklight -inc 5 && ~/.local/bin/brightness,xbacklight -dec 5 && ~/.local/bin/brightness}
+
+# Take a screenshoft 
+Print
+	dmenu-screenshot
+
+#song notification
+super+slash
+	dunst-music-notification
+
+
+
+########################################       BAR CONTROLS             ###########################
+
+#reload polybar
+alt+control+z
+	~/.config/polybar/launch.sh
+
+#toggle polyar
+super+shift+p
+	polybar-msg cmd toggle
+
+
+#########################################             BSPWM CONTROLS            ###################################
+
+#restart bspwm
+super+shift+r
+	bspc wm -r
+
+# Reload sxhkd
+super+shift+c
+	killall "sxhkd" && sxhkd & 
+
+#kill exit bspwm
+alt+ctrl+e
+	rofiprompt "Logout?" "bspc quit"
+
+#kill focused window
+super+q
+	bspc node -c
+
+#focus window
+super+{h,j,k,l}
+	bspc node -f {west,south,north,east}
+
+#move focused window
+super+shift+{h,j,k,l}
+	bspc node -s {west,south,north,east}
+
+#move to desktop
+super+{1-9}
+
+	bspc desktop -f {1-9}
+
+#move window to another desktop
+alt+{1-9}
+	bspc node -d {1-9}
+
+#move to window to desktop and follow it
+super+shift+{1-9}
+	    bspc node -d {1-9} --follow
+
+#toggle fullscreen
+super+f
+	bspc node -t {fullscreen,tiled}
+
+#toggle floating
+super+shift+space
+	bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
+
+#cycle though workscpaces
+super+Tab
+	bspc desktop -f {prev, next}
+
+#focus floating
+super+shift+f
+	bspc node any.floating -f
+
+# Expand a window by moving one of its side outward
+super+{Left,Up,Down,Right}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# Contract a window by moving one of its side inward
+super+shift+{Left,Up,Down,Right}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
