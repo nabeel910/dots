@@ -68,7 +68,7 @@ cmd folderimages ${{
 }}
 
 cmd openinterm ${{
-  devour alacritty 
+  devour st 
 }}
 
 cmd mkfile ${{
@@ -219,7 +219,8 @@ map gps cd ~/pics/screenshots
 map gpw cd ~/pics/wallpapers
 
 map gd cd ~/dl
-map gm cd ~/music
+map gm. cd ~/music
+map gmh cd /mnt/HDD
 
 map gc cd ~/.config
 map gl. cd ~/.local

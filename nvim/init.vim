@@ -11,5 +11,6 @@ call plug#begin()
 Plug 'lilydjwg/colorizer'
 Plug 'iandwelker/rose-pine-vim'
 Plug 'shaunsingh/nord.nvim'
+Plug 'Mofiqul/dracula.nvim'
 call plug#end()
-colorscheme nord
+colorscheme dracula
