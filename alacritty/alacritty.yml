@@ -17,10 +17,10 @@ window:
   #
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
+  opacity: 1
   dimensions:
         columns: 100
         lines: 35
-
   # Window position (changes require restart)
   #
   # Specified in number of pixels.
@@ -98,7 +98,7 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     #family: RobotoMono Nerd Font
-    family: RobotoMono Nerd Font
+    family: TerminessTTF Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -109,7 +109,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: RobotoMono Nerd Font
+    family: TerminessTTF Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -137,7 +137,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 9
+  size: 11
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -185,114 +185,151 @@ schemes:
 
   dracula: &dracula
     primary:
-      background: '0x282a36'
-      foreground: '0xf8f8f2'
+      background: '#282a36'
+      foreground: '#f8f8f2'
     normal:
-      black:   '0x000000'
-      red:     '0xff5555'
-      green:   '0x50fa7b'
-      yellow:  '0xf1fa8c'
-      blue:    '0xbd93f9'
-      magenta: '0xff79c6'
-      cyan:    '0x8be9fd'
-      white:   '0xbbbbbb'
+      black:   '#000000'
+      red:     '#ff5555'
+      green:   '#50fa7b'
+      yellow:  '#f1fa8c'
+      blue:    '#bd93f9'
+      magenta: '#ff79c6'
+      cyan:    '#8be9fd'
+      white:   '#bbbbbb'
     bright:
-      black:   '0x555555'
-      red:     '0xff5555'
-      green:   '0x50fa7b'
-      yellow:  '0xf1fa8c'
-      blue:    '0xcaa9fa'
-      magenta: '0xff79c6'
-      cyan:    '0x8be9fd'
-      white:   '0xffffff'
+      black:   '#555555'
+      red:     '#ff5555'
+      green:   '#50fa7b'
+      yellow:  '#f1fa8c'
+      blue:    '#caa9fa'
+      magenta: '#ff79c6'
+      cyan:    '#8be9fd'
+      white:   '#ffffff'
 
   dark_pastels: &dark_pastels
     primary:
-      background: '0x2C2C2C'
-      foreground: '0xDCDCCC'
+      background: '#2C2C2C'
+      foreground: '#DCDCCC'
     normal:
-      black:   '0x3F3F3F'
-      red:     '0x705050'
-      green:   '0x60B48A'
-      yellow:  '0xDFAF8F'
-      blue:    '0x9AB8D7'
-      magenta: '0xDC8CC3'
-      cyan:    '0x8CD0D3'
-      white:   '0xDCDCCC'
+      black:   '#3F3F3F'
+      red:     '#705050'
+      green:   '#60B48A'
+      yellow:  '#DFAF8F'
+      blue:    '#9AB8D7'
+      magenta: '#DC8CC3'
+      cyan:    '#8CD0D3'
+      white:   '#DCDCCC'
     bright:
-      black:   '0x709080'
-      red:     '0xDCA3A3'
-      green:   '0x72D5A3'
-      yellow:  '0xF0DFAF'
-      blue:    '0x94BFF3'
-      magenta: '0xEC93D3'
-      cyan:    '0x93E0E3'
-      white:   '0xFFFFFF'
+      black:   '#709080'
+      red:     '#DCA3A3'
+      green:   '#72D5A3'
+      yellow:  '#F0DFAF'
+      blue:    '#94BFF3'
+      magenta: '#EC93D3'
+      cyan:    '#93E0E3'
+      white:   '#FFFFFF'
 
   doom_one: &doom_one
     primary:
-      background: '0x282c34'
-      foreground: '0xbbc2cf'
+      background: '#282c34'
+      foreground: '#bbc2cf'
     normal:
-      black:   '0x282c34'
-      red:     '0xff6c6b'
-      green:   '0x98be65'
-      yellow:  '0xecbe7b'
-      blue:    '0x51afef'
-      magenta: '0xc678dd'
-      cyan:    '0x46d9ff'
-      white:   '0xbbc2cf'
+      black:   '#282c34'
+      red:     '#ff6c6b'
+      green:   '#98be65'
+      yellow:  '#ecbe7b'
+      blue:    '#51afef'
+      magenta: '#c678dd'
+      cyan:    '#46d9ff'
+      white:   '#bbc2cf'
 
 rosepine: &rosepine
   primary:
-    background: '0x191724'
-    foreground: '0xe0def4'
+    background: '#191724'
+    foreground: '#e0def4'
   selection:
     text: CellForeground
-    background: '0x2A2738'
+    background: '#2A2738'
   normal:
-    black:   '0x6e6a86'
-    red:     '0xeb6f92'
-    green:   '0x9ccfd8'
-    yellow:  '0xf6c177'
-    blue:    '0x31748f'
-    magenta: '0xc4a7e7'
-    cyan:    '0xebbcba'
-    white:   '0xe0def4'
+    black:   '#6e6a86'
+    red:     '#eb6f92'
+    green:   '#9ccfd8'
+    yellow:  '#f6c177'
+    blue:    '#31748f'
+    magenta: '#c4a7e7'
+    cyan:    '#ebbcba'
+    white:   '#e0def4'
   bright:
-    black:   '0x6e6a86'
-    red:     '0xeb6f92'
-    green:   '0x9ccfd8'
-    yellow:  '0xf6c177'
-    blue:    '0x31748f'
-    magenta: '0xc4a7e7'
-    cyan:    '0xebbcba'
-    white:   '0xe0def4'
+    black:   '#6e6a86'
+    red:     '#eb6f92'
+    green:   '#9ccfd8'
+    yellow:  '#f6c177'
+    blue:    '#31748f'
+    magenta: '#c4a7e7'
+    cyan:    '#ebbcba'
+    white:   '#e0def4'
 
   nord: &nord
     primary:
-      background: '0x2E3440'
-      foreground: '0xD8DEE9'
+      background: '#2E3440'
+      foreground: '#D8DEE9'
     normal:
-      black:   '0x3B4252'
-      red:     '0xBF616A'
-      green:   '0xA3BE8C'
-      yellow:  '0xEBCB8B'
-      blue:    '0x81A1C1'
-      magenta: '0xB48EAD'
-      cyan:    '0x88C0D0'
-      white:   '0xE5E9F0'
+      black:   '#3B4252'
+      red:     '#BF616A'
+      green:   '#A3BE8C'
+      yellow:  '#EBCB8B'
+      blue:    '#81A1C1'
+      magenta: '#B48EAD'
+      cyan:    '#88C0D0'
+      white:   '#E5E9F0'
     bright:
-      black:   '0x4C566A'
-      red:     '0xBF616A'
-      green:   '0xA3BE8C'
-      yellow:  '0xEBCB8B'
-      blue:    '0x81A1C1'
-      magenta: '0xB48EAD'
-      cyan:    '0x8FBCBB'
-      white:   '0xECEFF4'
+      black:   '#4C566A'
+      red:     '#BF616A'
+      green:   '#A3BE8C'
+      yellow:  '#EBCB8B'
+      blue:    '#81A1C1'
+      magenta: '#B48EAD'
+      cyan:    '#8FBCBB'
+      white:   '#ECEFF4'
 
-colors: *nord
+# Catppuccin!
+  catppuccin: &catppuccin
+    primary:
+      background: '#1E1D2F'
+      foreground: '#D9E0EE'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+    cursor:
+      text: '#1E1D2F'
+      cursor: '#F5E0DC'
+
+  # Normal colors
+    normal:
+      black:   '#6E6C7E'
+      red:     '#F28FAD'
+      green:   '#ABE9B3'
+      yellow:  '#FAE3B0'
+      blue:    '#96CDFB'
+      magenta: '#F5C2E7'
+      cyan:    '#89DCEB'
+      white:   '#D9E0EE'
+
+  # Bright colors
+    bright:
+      black:   '#988BA2'
+      red:     '#F28FAD'
+      green:   '#ABE9B3'
+      yellow:  '#FAE3B0'
+      blue:    '#96CDFB'
+      magenta: '#F5C2E7'
+      cyan:    '#89DCEB'
+      white:   '#D9E0EE'
+
+    indexed_colors:
+      - { index: 16, color: '#F8BD96' }
+      - { index: 17, color: '#F5E0DC' }
+
+colors: *catppuccin
 
 # Visual Bell
 #
@@ -324,7 +361,6 @@ colors: *nord
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-#background_opacity: 1
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 

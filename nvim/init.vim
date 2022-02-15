@@ -12,5 +12,6 @@ Plug 'lilydjwg/colorizer'
 Plug 'iandwelker/rose-pine-vim'
 Plug 'shaunsingh/nord.nvim'
 Plug 'Mofiqul/dracula.nvim'
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 call plug#end()
-colorscheme dracula
+colorscheme catppuccin
