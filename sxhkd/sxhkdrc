@@ -2,57 +2,49 @@
 
 # Start a terminal
 super+Return 
-	alacritty
-
-super+shift+Return
 	st
 
 # Start brave,chromium browser
-super+{w,c}
-	{brave,chromium}
+super+{w}
+	{chromium-freeworld}
 
-alt+control+{c,w} 
-	{chromium --incognito,brave --incognito}
-
-# Start media players
-#super+m
-#	cmus
+alt+control+{w} 
+	{chromium-freeworld --incognito}
 
 # open file manager
 super+n
-	alacritty -e lf
+	st -e lf
 
 super+shift+n
 	thunar
 
 super+shift+p
-	alacritty -t pacman-updates -e paru -Syu
+	st -e sudo dnf update
 
-super+r
-	alacritty -e newsboat
+#super+r
+#	alacritty -e newsboat
 
-super+shift+k
-	pirokit
+#super+shift+k
+#	pirokit
 
-super+shift+v
-	alacritty -t sxiv set-bg -e viewwalls
+#super+shift+v
+#	alacritty -t sxiv set-bg -e viewwalls
 
-super+/
-	dunst-music-notification
+#super+/
+#	dunst-music-notification
 
-super+shift+/
-	pendingpacks
+#super+shift+/
+#	pendingpacks
 
-super+t
-	alacritty -t tremc -e tremc
+#super+t
+#	alacritty -t tremc -e tremc
 
 
 ####################################        DMENU MENUS                ############################
 
 #start menu
 super+d
-	dmenu_run -i
-
+	rofi -show drun	
 #emoji picker
 super+e
 	dmenuemoji
@@ -63,27 +55,29 @@ super+x
 
 # Lock screen, reboot, suspend, poweroff
 alt+ctrl+{l,e}
-	{slock,dsession}
+	{xflock4,dsession}
 
 
 #networkmanager_dmenu
 #
-super+shift+w
-	networkmanager_dmenu
+#super+shift+w
+#	networkmanager_dmenu
 
 # open calc
 super+g
-	= --dmenu='dmenu -i -l 3'
+	galculator
 
 ####################################        SYSTEM CONTROLS           ############################
 
 # Audio controls
 XF86Audio{Raise,Lower}Volume
-	{pamixer --allow-boost -i 10 && ~/.local/bin/sound-notification && polybar-msg hook sb-sound 1,pamixer --allow-boost -d 10 && ~/.local/bin/sound-notification && polybar-msg hook sb-sound 1}
+	{/usr/bin/pulseaudio-ctl up 10 && sound-notification,/usr/bin/pulseaudio-ctl down 10 && sound-notification}
+#	{pamixer --allow-boost -i 10 && ~/.local/bin/sound-notification && polybar-msg hook sb-sound 1,pamixer --allow-boost -d 10 && ~/.local/bin/sound-notification && polybar-msg hook sb-sound 1}
 
 # Mute Audio
 XF86AudioMute
-	pamixer -t && ~/.local/bin/sound-notification && polybar-msg hook sb-sound 1
+	/usr/bin/pulseaudio-ctl mute && sound-notification
+#	pamixer -t && ~/.local/bin/sound-notification && polybar-msg hook sb-sound 1
 
 # Media player controls
 XF86Audio{Play,Next,Prev}
@@ -91,11 +85,11 @@ XF86Audio{Play,Next,Prev}
 
 # Brightness controls
 XF86MonBrightness{Up,Down}
-	{xbacklight -inc 5 && ~/.local/bin/brightness,xbacklight -dec 5 && ~/.local/bin/brightness}
+	{light -A 5 && ~/.local/bin/brightness,light -U 5 && ~/.local/bin/brightness}
 
 # Take a screenshoft 
 Print
-	dmenu-screenshot
+	xfce4-screenshooter
 
 #song notification
 super+slash
@@ -107,7 +101,7 @@ super+slash
 
 #reload polybar
 alt+control+z
-	~/.config/polybar/launch.sh
+	killall polybar && polybar &
 
 #toggle polyar
 super+shift+p
@@ -126,8 +120,7 @@ super+shift+c
 
 #kill exit bspwm
 alt+ctrl+e
-	rofiprompt "Logout?" "bspc quit"
-
+	dsession	
 #kill focused window
 super+q
 	bspc node -c
