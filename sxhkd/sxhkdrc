@@ -47,7 +47,7 @@ super+d
 	rofi -show drun	
 #emoji picker
 super+e
-	dmenuemoji
+	rofiemoji
 
 # Start Clipmenu
 super+x
@@ -71,13 +71,13 @@ super+g
 
 # Audio controls
 XF86Audio{Raise,Lower}Volume
-	{/usr/bin/pulseaudio-ctl up 10 && sound-notification,/usr/bin/pulseaudio-ctl down 10 && sound-notification}
-#	{pamixer --allow-boost -i 10 && ~/.local/bin/sound-notification && polybar-msg hook sb-sound 1,pamixer --allow-boost -d 10 && ~/.local/bin/sound-notification && polybar-msg hook sb-sound 1}
+#	{/usr/bin/pulseaudio-ctl up 10 && sound-notification,/usr/bin/pulseaudio-ctl down 10 && sound-notification}
+	{pamixer --allow-boost -i 10 && ~/.local/bin/sound-notification && polybar-msg hook sb-sound 1,pamixer --allow-boost -d 10 && ~/.local/bin/sound-notification && polybar-msg hook sb-sound 1}
 
 # Mute Audio
 XF86AudioMute
-	/usr/bin/pulseaudio-ctl mute && sound-notification
-#	pamixer -t && ~/.local/bin/sound-notification && polybar-msg hook sb-sound 1
+#	/usr/bin/pulseaudio-ctl mute && sound-notification
+	pamixer -t && ~/.local/bin/sound-notification && polybar-msg hook sb-sound 1
 
 # Media player controls
 XF86Audio{Play,Next,Prev}
@@ -91,22 +91,12 @@ XF86MonBrightness{Up,Down}
 Print
 	xfce4-screenshooter
 
-#song notification
-super+slash
-	dunst-music-notification
-
-
 
 ########################################       BAR CONTROLS             ###########################
 
 #reload polybar
 alt+control+z
 	killall polybar && polybar &
-
-#toggle polyar
-super+shift+p
-	polybar-msg cmd toggle
-
 
 #########################################             BSPWM CONTROLS            ###################################
 
@@ -115,12 +105,9 @@ super+shift+r
 	bspc wm -r
 
 # Reload sxhkd
-super+shift+c
+alt+control+c
 	killall "sxhkd" && sxhkd & 
 
-#kill exit bspwm
-alt+ctrl+e
-	dsession	
 #kill focused window
 super+q
 	bspc node -c
